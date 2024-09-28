@@ -1,0 +1,23 @@
+# Human-readable name of the service
+name: secretchannel
+# Name of the service for usage in paths, usernames etc.: Should only consist of lowercase alphanumeric
+# characters, must be identical to the (URL) project name of the GitLab repo
+slug: secretchannel
+authors:
+
+install:
+  container_images:
+    - faust.cs.fau.de:5000/secretchannel
+    - faust.cs.fau.de:5000/secretchannel_deps
+    - docker.io/node:22-alpine
+    - docker.io/postgres:16-alpine
+
+checker:
+  script_path: checker/checker.py
+  # Upper bound of how long the Checker Script takes to run (for a single team)
+  # Used for scheduling checks within a tick, executions taking longer *may* get terminated
+  max_duration: 60
+  debian_packages:
+    - python3-requests
+    - python3-bs4
+  pip_packages: []

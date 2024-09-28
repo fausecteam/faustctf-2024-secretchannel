@@ -1,0 +1,44 @@
+version: "2.2"
+# ipv6 is not supported in version 3
+
+services:
+  secretchannel:
+    restart: unless-stopped
+    image: faust.cs.fau.de:5000/secretchannel
+    init: true
+    build: secretchannel
+    ports:
+      - 3000:3000
+    volumes:
+      - ./upload/:/upload/
+    environment:
+      PGUSER: root
+      PGPASSWORD: root
+      PGHOST: postgres
+      PGDATABASE: secretchannel
+    depends_on:
+      postgres:
+        condition: service_healthy
+  postgres:
+    restart: unless-stopped
+    image: postgres:16-alpine
+    volumes:
+      - ./data/:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: secretchannel
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d secretchannel"]
+      interval: 10s
+      timeout: 10s
+      retries: 20
+      start_period: 10s
+
+networks:
+  default:
+    enable_ipv6: true
+    ipam:
+        driver: default
+        config:
+            - subnet: "fd42:d0ce:6666::/64"

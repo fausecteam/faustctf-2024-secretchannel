@@ -1,0 +1,18 @@
+h1 Manage your Message
+p Create a new Access Token for Message with ID #{id}
+form(
+  action='/manage'
+  method='POST'
+  )
+  input(type='text' name='token' style='display: none' value=manage_token)
+  input(type='password' name='pw' style='display: none' value=orig_pw)
+  br
+  label(for='action') Select Token Permissions
+  select(placeholder='' name='action')
+    option(value='read') Read
+    if msgtyp === 'fileupload'
+      option(value='upload') Upload File
+    option(value='manage') Manage Token
+  label(for='newpw') Password to protect this token:
+  input(placeholder='Insert token password' type='password' name='newpw')
+  input(type='submit' value='Create Token')

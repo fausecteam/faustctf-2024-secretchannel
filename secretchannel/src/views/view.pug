@@ -1,0 +1,13 @@
+html
+    head
+        title SecretChannel
+        style
+          include style.css
+    body
+      div.content
+        h1 Secret Message
+        if typ === 'text'
+          p= content
+        else if typ === 'file' || typ == 'fileupload'
+          iframe(src=`/viewfile?token=${orig_token}&pw=${orig_pw}`)
+

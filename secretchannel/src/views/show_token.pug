@@ -1,0 +1,15 @@
+html
+    head
+        title SecretChannel
+        style
+          include style.css
+    body
+      div.content
+        h1 Token created
+        p You can use this token
+        p.big= token
+        p
+          a(href="/") to manage your message. 
+          span Do not send this token to your agent as it will allow them to create arbitrary access tokens for this message.
+        p You can distinguish all tokens accessing this message by the ID
+        p.big= id

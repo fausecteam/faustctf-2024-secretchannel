@@ -1,0 +1,33 @@
+html
+    head
+        title SecretChannel
+        link(rel='stylesheet', href='https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap')
+        script
+          include create.js
+        style
+          include style.css
+    body
+      div.content
+        h1 Welcome to SecretChannel
+        h3 The Secret-Agent message delivery network
+        p.big Upload a message for your field agent.
+        form(
+          action='/create'
+          method='POST'
+          enctype='multipart/form-data'
+          )
+          label(for='type') Message Type:
+          select(placeholder='Select Message Type' name='type' id='type')
+            option(value='text') Text
+            option(value='file') Upload a file
+            option(value='fileupload') Receive a file
+          div.contentForm#text
+            label(for='content') Token:
+            textarea(placeholder='Message' name='content')
+          div.contentForm#file
+            label(for='file')
+            input(type='file' name='file')
+          label(for='pw') Password to protect this information:
+          input(placeholder='Insert token password' type='password' name='pw')
+          input(type='submit' value='Start')
+

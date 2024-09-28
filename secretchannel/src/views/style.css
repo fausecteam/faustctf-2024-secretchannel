@@ -1,0 +1,81 @@
+/* Adding a Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    background: url('/images/architecture.svg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+}
+
+.content {
+    width: max-content;
+    margin: 0 auto;
+    background: #ff3322; /* Solid red background */
+    border-radius: 15px;
+    border: 2px solid #881100;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+a {
+    color: white;
+}
+
+form {
+    width: max-content;
+    margin: 0 auto;
+}
+
+h1, h3 {
+    margin: 0;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+input, textarea, select {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    background: #4CAF50; /* Green background for the submit button */
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background: #45a049; /* Darker green on hover */
+}
+
+textarea {
+    resize: vertical;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+p.big {
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+

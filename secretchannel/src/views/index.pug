@@ -1,0 +1,22 @@
+html
+    head
+        title SecretChannel
+        style
+          include style.css
+    body
+      div.content
+        h1 Welcome to Secretchannnel
+        h3 The Secret-Agent message delivery network
+        p We provide secure message delivery from and to your field agents.
+        p To start, please insert the token corresponding to your message
+        p If you don't have one, 
+          a(href='/create') create a message instead
+        form(
+          action='/'
+          method='POST'
+          )
+          label(for='token') Token:
+          input(placeholder='Insert your token' type='text' name='token')
+          label(for='pw') Password:
+          input(placeholder='Insert token password' type='password' name='pw')
+          input(type='submit' value='Start')

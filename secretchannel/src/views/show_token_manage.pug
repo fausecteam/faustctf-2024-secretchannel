@@ -1,0 +1,14 @@
+html
+    head
+        title SecretChannel
+        style
+          include style.css
+    body
+      div.content
+        h1 Token created
+        p You can use this token to manage access to your message:
+        p.big= token
+        p Do not send this token to your agent as it will allow them to create arbitrary access tokens for this message.
+        p You can distinguish all tokens accessing this message by the ID
+        p.big= id
+        include management.pug

@@ -1,0 +1,15 @@
+html
+    head
+        title SecretChannel
+        style
+          include style.css
+    body
+      div.content
+        h1 Token created
+        p You can use this token to 
+          b #{action} 
+          | your message
+        p.big= token
+        p You can distinguish all tokens accessing this message by the ID
+        p.big= id
+        include management.pug
